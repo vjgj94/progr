@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+int main()
+
+{
+char nombre[20], apellido[20];
+float costo, peso, costof, precio, opprecio;
+long long int numcedula;
+
+    cout << "Introduzca su primer nombre y primer apellido \n\n";
+     cin >> nombre >> apellido; 
+    cout << "\nIntroduzca los valores de su cedula\n\n ";
+     cin >> numcedula;
+	cout << "\nIntroduzca el peso y precio del articulo\n\n  ";
+	 cin >> peso >> precio;
+	
+		if (precio >= 0 && precio <= 25){
+			costo =15;
+		} 
+		else if (precio >= 26 && precio <= 50){
+			costo =10;
+		}
+		else if (precio >= 51 && precio <=75){
+			costo =5;
+		} 
+		else {
+			costo =0;
+		}
+		
+		if (peso >50){
+			costof =25*(1-pow(1.01000,-9.21000*peso));
+		}
+		else {
+			costof=costo;
+		}
+        cout << "\n\n\n\n"<< setfill(' ') << left << setw(25) << "Cliente"
+             << setfill(' ') << left << setw(16) << "Cedula"
+             << setfill(' ') << setw(16) << "Peso"
+             << setfill(' ') << setw(16) << "Precio"
+             << setfill(' ') << setw(16) << "Costo"
+             << '\n';
+            
+        cout << setfill(' ') << setw(10) << nombre
+             << setfill(' ') << setw(15) << apellido
+             << setfill(' ') << setw(16) << numcedula
+             << setfill(' ') << setw(16) << fixed << setprecision (2) << peso 
+             << setfill(' ') << setw(16) << fixed  << precio
+             << setfill(' ') << setw(16) << fixed  << costof 
+             << '\n';	
+
+return 0;
+}
